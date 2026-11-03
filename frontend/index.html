@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Expense Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="app">
+        <header class="topbar">
+            <div class="brand">
+                <div class="brand-icon">₹</div>
+                <div>
+                    <h1>SpendWise</h1>
+                    <p>SMART EXPENSE ANALYZER</p>
+                </div>
+            </div>
+            <span class="status"><span></span> Personal Finance</span>
+        </header>
+
+        <main>
+            <section class="welcome">
+                <div>
+                    <p class="eyebrow">YOUR FINANCIAL OVERVIEW</p>
+                    <h2>Understand your spending.</h2>
+                    <p class="subtitle">Upload your transactions to see where your money goes.</p>
+                </div>
+
+                <label for="csvFile" class="upload-button">
+                    ↑ &nbsp; Upload Statement
+                </label>
+                <input type="file" id="csvFile" accept=".csv,.pdf" hidden>
+            </section>
+
+            <p id="fileName" class="file-name">No file selected</p>
+            <p id="message" class="message" role="status"></p>
+
+            <section class="summary-grid">
+                <article class="summary-card">
+                    <p>Total spent</p>
+                    <h3 id="totalSpent">₹0</h3>
+                    <span id="spendingSummary">Upload a CSV to begin</span>
+                </article>
+
+                <article class="summary-card">
+                    <p>Transactions</p>
+                    <h3 id="transactionCount">0</h3>
+                    <span>Recorded transactions</span>
+                </article>
+
+                <article class="summary-card">
+                    <p>Average per day</p>
+                    <h3 id="averagePerDay">₹0</h3>
+                    <span id="daysTracked">Days tracked: —</span>
+                </article>
+
+                <article class="summary-card">
+                    <p>Highest spending day</p>
+                    <h3 id="highestDayAmount">₹0</h3>
+                    <span id="highestDay">No data yet</span>
+                </article>
+            </section>
+
+            <section class="charts-grid">
+                <article class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Spending by category</h3>
+                            <p>How your expenses are distributed</p>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                    <div id="categoryLegend" class="category-legend"></div>
+                </article>
+
+                <article class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Daily spending</h3>
+                            <p>Your spending trend over time</p>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="dailyChart"></canvas>
+                    </div>
+                </article>
+            </section>
+
+            <section class="panel insight-panel">
+                <div class="insight-icon">✦</div>
+                <div>
+                    <p class="eyebrow">SPENDING INSIGHT</p>
+                    <h3>Your money, explained</h3>
+                    <p id="insightText">
+                        Your personalized spending insight will appear here after you upload a CSV.
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <footer>SpendWise · Make every rupee count.</footer>
+    </div>
+</body>
+</html>
